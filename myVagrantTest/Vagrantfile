@@ -1,0 +1,55 @@
+#-*- mode: ruby -*-
+# vi: set ft=ruby :
+
+# All Vagrant configuration is done below. The "2" in Vagrant.configure
+# configures the configuration version (we support older styles for
+# backwards compatibility). Please don't change it unless you know what
+# you're doing.
+Vagrant.configure("2") do |config|
+ 
+  config.vm.box = "bento/ubuntu-18.04"
+  config.vm.box_check_update = true
+
+    config.vm.provision "shell", inline: <<-SHELL
+      wget https://apt.puppetlabs.com/puppet5-release-$(lsb_release -cs).deb
+      dpkg -i puppet5-release-$(lsb_release -cs).deb
+      apt-get -qq update
+      apt-get install -y puppet-agent
+   SHELL
+   
+    #application server
+    config.vm.define "appserver" do |appserver|
+    appserver.vm.box = "node.js"
+    end
+
+    #web server 
+    config.vm.define "web" do |web|
+    web.vm.box = "nginx"
+    web.vm.network "forwarded_port", guest: 80, host: 8080
+    end
+
+    #database server
+    config.vm.define "dbserver" do |dbserver|
+    dbserver.vm.box = "mysql"
+    end
+
+    #tst0 server
+    config.vm.define "tst0" do |tst0_config|
+    tst0_config.vm.box = "tst0"
+    end
+
+    #tst0 server
+    config.vm.define "tst1" do |tst1_config|
+    tst1_config.vm.box = "tst1"
+    end
+
+    #tst2 server
+    config.vm.define "tst2" do |tst2_config|
+    tst2_config.vm.box = "tst2"
+    end
+
+    config.vm.provision "puppet" do |puppet|
+      puppet.manifests_path = "environments/test/manifests"
+      puppet.manifest_file = "default.pp"
+    end
+end
