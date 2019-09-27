@@ -1,0 +1,26 @@
+
+C:\Users\t_add\Desktop\VagrantTest>vagrant up
+Bringing machine 'appserver' up with 'digital_ocean' provider...
+Bringing machine 'dbserver' up with 'digital_ocean' provider...
+==> appserver: Using existing SSH key: Vagrant
+==> dbserver: Using existing SSH key: Vagrant
+==> appserver: Creating a new droplet...
+==> dbserver: Creating a new droplet...
+==> appserver: Assigned IP address: 157.230.179.20
+==> dbserver: Assigned IP address: 157.230.214.227
+==> appserver: Preparing SMB shared folders...
+    appserver: You will be asked for the username and password to use for the SMB
+    appserver: folders shortly. Please use the proper username/password of your
+    appserver: account.
+    appserver:
+    appserver: Username: ==> dbserver: Preparing SMB shared folders...
+    dbserver: You will be asked for the username and password to use for the SMB
+    dbserver: folders shortly. Please use the proper username/password of your
+    dbserver: account.
+    dbserver:
+    dbserver: Username: adod18@student.bth.se
+    dbserver: Password (will be hidden): Adeshola1
+    appserver: Password (will be hidden):
+==> appserver: Rsyncing folder: /cygdrive/c/Users/t_add/Desktop/VagrantTest/ => /vagrant
+==> appserver: Mounting SMB shared folders...
+==> appserver: An error occurred. The error will be shown after all tasks complete.
