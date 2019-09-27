@@ -19,7 +19,7 @@ Bringing machine 'dbserver' up with 'digital_ocean' provider...
     dbserver: account.
     dbserver:
     dbserver: Username: adod18@student.bth.se
-    dbserver: Password (will be hidden): Adeshola1
+    dbserver: Password (will be hidden): myPassword
     appserver: Password (will be hidden):
 ==> appserver: Rsyncing folder: /cygdrive/c/Users/t_add/Desktop/VagrantTest/ => /vagrant
 ==> appserver: Mounting SMB shared folders...
